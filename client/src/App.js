@@ -15,12 +15,12 @@ handleChange = ({ target: { value, name }}) => this.setState({ [name]: value })
 
 createAndDownloadPDF = () => {
   axios.post('/create-pdf', this.state)
-    .then(() => axios.get('fetch-pdf', { responseType: 'blob' }))
-    .then((res) => {
-      const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
+  .then(() => axios.get('fetch-pdf', { responseType: 'blob' }))
+  .then((res) => {
+    const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
 
-      saveAs(pdfBlob, 'newPdf.pdf');
-    })
+    saveAs(pdfBlob, 'newPdf.pdf');
+  })
 }
   render() {
     return (
