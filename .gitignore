@@ -6,7 +6,8 @@
 /client/.pnp
 /server/result.pdf
 .pnp.js
-
+index.html
+style.css
 # testing
 /client/coverage
 

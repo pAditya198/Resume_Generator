@@ -6,9 +6,8 @@ import "./App.css";
 class App extends Component {
 state = {
       name: "",
-      receiptId: 0,
-      price1: 0,
-      price2: 0
+      phone: 0,
+      githubUrl: 0,
     };
   
 handleChange = ({ target: { value, name }}) => this.setState({ [name]: value })
@@ -33,20 +32,14 @@ createAndDownloadPDF = () => {
         />
         <input
           type="number"
-          placeholder="Receipt Id"
-          name="receiptId"
+          placeholder="Phone"
+          name="phone"
           onChange={this.handleChange}
         />
         <input
-          type="number"
-          placeholder="Price 1"
-          name="price1"
-          onChange={this.handleChange}
-        />
-        <input
-          type="number"
-          placeholder="Price 2"
-          name="price2"
+          type="url"
+          placeholder="Github Link"
+          name="githubUrl"
           onChange={this.handleChange}
         />
         <button onClick={this.createAndDownloadPDF}>Download PDF</button>
