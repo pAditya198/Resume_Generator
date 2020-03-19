@@ -1,9 +1,9 @@
-module.exports = ({ name,phone,githubUrl }) => {
+module.exports = ({ name, phone, githubUrl }) => {
   const today = new Date();
-  const arr=['kirito','aditya']
-   const loop=arr.map((ele)=>{
-      return `<p>${ele}</p>`
-   })
+  const arr = ["kirito", "aditya"];
+  const loop = arr.map(ele => {
+    return `<p>${ele}</p>`;
+  });
 
   return `
    <!doctype html>
@@ -13,31 +13,38 @@ module.exports = ({ name,phone,githubUrl }) => {
          <title>PDF Result Template</title>
          <style>
          .container {
-            max-width: 800px;
+            max-width: max-content;
             margin: auto;
             padding: 30px;
             border: 1px solid #eee;
             box-shadow: 0 0 10px rgba(0, 0, 0, .15);
-            font-size: 16px;
+            font-size: 14px;
             line-height: 24px;
             font-family: 'Helvetica Neue', 'Helvetica';
             color: #555;
         }
-        .container header ul {
-            display: flex;
-            justify-content: space-between;
-        list-style: none;
+        
+        .container header table td {
+            padding: 5px;
+            vertical-align: top;
+        }
+        
+
+        .container table tr.top table td {
+            padding-bottom: 20px;
         }
          </style>
       </head>
       <body>
       <div class="container">
       <header>
-         <ul>
-            <li>Name : Kirito</li>
-            <li>Contact : 7985565341</li>
-            <li>Github : https://github.com/paditya198</li>
-         </ul>
+      <table>
+         <tr>
+            <td><strong> Name</strong> : ${name} </td>
+            <td><strong>Contact</strong> : ${phone} </td>
+            <td><strong>Github Url</strong> : ${githubUrl} </td>
+         </tr>
+      </table>
       </header>
    </div>
       </body>
