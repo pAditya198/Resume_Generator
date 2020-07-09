@@ -1,10 +1,7 @@
 module.exports = ({ name, gmail, twitter, linkdin, github }) => {
-  const today = new Date();
-  const arr = ["kirito", "aditya"];
-  const loop = arr.map(ele => {
-    return `<p>${ele}</p>`;
-  });
-  const path = "http://github.com/iiitv.png";
+   if(!name || !gmail || !twitter || !linkdin || !github ){
+      return ;
+   }
   return `<!DOCTYPE html>
   <html lang="en">
   <head>
@@ -12,6 +9,7 @@ module.exports = ({ name, gmail, twitter, linkdin, github }) => {
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Resume</title>
      <script src="https://use.fontawesome.com/72777e07a4.js"></script>
+     
      <style>
 
      .container {
@@ -145,13 +143,13 @@ module.exports = ({ name, gmail, twitter, linkdin, github }) => {
   <body class="container">
   <div class="inner-container">
      <header class="header">
-        <h1 class="name">Aditya Prakash Chaudhary</h1>
+        <h1 class="name">${name}</h1>
         <table class="imp-links">
            <tr>
-              <td><i class="fa fa-at"></i>p.aditya.198@gmail.com</td>
-              <td><i class="fa fa-twitter"></i>@paditya198</td>
-              <td><i class="fa fa-linkedin"></i> linkedin.com/in/aditya-prakash-2a354b170/</td>
-              <td><i class="fa fa-github"></i> github.com/pAditya198</td>
+              <td><i class="fa fa-at"></i> ${gmail}</td>
+              <td><i class="fa fa-twitter"></i> ${twitter}</td>
+              <td><i class="fa fa-linkedin"></i> ${linkdin}</td>
+              <td><i class="fa fa-github"></i> ${github}</td>
            </tr>
         </table>
      </header>
