@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import axios from "axios";
 import { saveAs } from "file-saver";
 import "./App.css";
+import back from "./back";
 
 class App extends Component {
   state = {
@@ -9,28 +9,31 @@ class App extends Component {
     gmail: "",
     twitter: "",
     linkdin: "",
-    github: ""
+    github: "",
   };
 
   handleChange = ({ target: { value, name } }) =>
     this.setState({ [name]: value });
 
-  createAndDownloadPDF = () => {
-    axios
+  createAndDownloadPDF = async () => {
+    return await back
       .post("/create-pdf", this.state)
-      .then(() => axios.get("fetch-pdf", { responseType: "blob" }))
-      .then(res => {
+      .then(() => back.get("fetch-pdf", { responseType: "blob" }))
+      .then((res) => {
+        console.log([res.data]);
         const pdfBlob = new Blob([res.data], { type: "application/pdf" });
         saveAs(pdfBlob, "newPdf.pdf");
       });
   };
   render() {
+    console.log(this.state);
     return (
       <div className="App">
         <input
           type="text"
           placeholder="Name"
           name="name"
+          value={this.state.name}
           onChange={this.handleChange}
         />
 
