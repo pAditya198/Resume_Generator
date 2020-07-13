@@ -1,0 +1,9 @@
+.project{
+    display: grid;
+    width: max-content;
+    margin: 0 auto;
+}
+
+.project input{
+    margin: 5px;
+}

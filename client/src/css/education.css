@@ -1,0 +1,10 @@
+.education{
+    display: flex;
+    width: max-content;
+    flex-flow: column;
+    margin: 0 auto;
+}
+
+.education input{
+    margin: 5px;
+}

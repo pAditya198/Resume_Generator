@@ -1,0 +1,10 @@
+.experience{
+    display: flex;
+    flex-flow: column;
+    width: max-content;
+    margin: 0 auto;
+}
+
+.experience input{
+    margin: 5px;
+}

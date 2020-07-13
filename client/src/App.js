@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import { saveAs } from "file-saver";
 import "./App.css";
 import back from "./back";
+import Education from "./components/Education";
+import Experience from "./components/Experience.jsx";
+import Skills from "./components/Skills";
+import Certificates from "./components/Certificates";
+import Projects from "./components/Projects";
 
 class App extends Component {
   state = {
@@ -20,13 +25,13 @@ class App extends Component {
       .post("/create-pdf", this.state)
       .then(() => back.get("fetch-pdf", { responseType: "blob" }))
       .then((res) => {
-        console.log([res.data]);
+        // console.log([res.data]);
         const pdfBlob = new Blob([res.data], { type: "application/pdf" });
-        saveAs(pdfBlob, "newPdf.pdf");
+        saveAs(pdfBlob, "resume.pdf");
       });
   };
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <div className="App">
         <input
@@ -61,6 +66,11 @@ class App extends Component {
           name="github"
           onChange={this.handleChange}
         />
+        <Experience />
+        <Education />
+        <Skills />
+        <Certificates />
+        <Projects />
         <button onClick={this.createAndDownloadPDF}>Download PDF</button>
       </div>
     );

@@ -1,0 +1,9 @@
+.certificate{
+    display: grid;
+    width: max-content;
+    margin: 0 auto;
+}
+
+.certificate input{
+    margin: 5px;
+}

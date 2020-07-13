@@ -1,0 +1,9 @@
+.skill{
+    display: grid;
+    width: max-content;
+    margin: 0 auto;
+}
+
+.skill input{
+    margin: 5px;
+}
