@@ -7,9 +7,9 @@ export class Experience extends Component {
         return (
             <div className="experience">
                 <h1>Experience</h1>
-                <input type="text" placeholder="Field" />
-                <input type="date" placeholder="Date" />
-                <input type="text" placeholder="experience" />
+                <input type="text" placeholder="Field" name="field" />
+                <input type="date" placeholder="Date" name="date"/>
+                <input type="text" placeholder="experience" name="experience" />
             </div>
         )
     }

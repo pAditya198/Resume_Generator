@@ -7,8 +7,8 @@ export class Certificates extends Component {
       <div>
         <h1>Certificates</h1>
         <div className="certificate">
-          <input type="text" placeholder="About" />
-          <input type="url" placeholder="Link" />
+          <input type="text" placeholder="About" name="certificate_about" />
+          <input type="url" placeholder="Link" name="certificate_link" />
         </div>
       </div>
     );

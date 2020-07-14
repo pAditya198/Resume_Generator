@@ -6,8 +6,8 @@ export class Education extends Component {
         return (
             <div className="education">
                 <h1>Education</h1>
-                <input type="text" placeholder="Degree"/>
-                <input type="text" placeholder="Institute Name"/>
+                <input type="text" placeholder="Degree" name="degree"/>
+                <input type="text" placeholder="Institute Name" name="insti_name"/>
             </div>
         )
     }
