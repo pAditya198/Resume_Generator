@@ -54,17 +54,17 @@ class App extends Component {
             name="gmail"
           />
           <input
-            type="url"
+            type="text"
             placeholder="Twitter"
             name="twitter"
           />
           <input
-            type="url"
+            type="text"
             placeholder="Linkdin"
             name="linkdin"
           />
           <input
-            type="url"
+            type="text"
             placeholder="Github"
             name="github"
           />

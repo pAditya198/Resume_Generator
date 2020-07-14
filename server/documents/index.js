@@ -1,7 +1,7 @@
-module.exports = ({ name, gmail, twitter, linkdin, github }) => {
-   if(!name || !gmail || !twitter || !linkdin || !github ){
-      return ;
-   }
+module.exports = (data) => {
+   // if(!name || !gmail || !twitter || !linkdin || !github ){
+   //    return ;
+   // }
   return `<!DOCTYPE html>
   <html lang="en">
   <head>
@@ -143,13 +143,13 @@ module.exports = ({ name, gmail, twitter, linkdin, github }) => {
   <body class="container">
   <div class="inner-container">
      <header class="header">
-        <h1 class="name">${name}</h1>
+        <h1 class="name">${data.name}</h1>
         <table class="imp-links">
            <tr>
-              <td><i class="fa fa-at"></i> ${gmail}</td>
-              <td><i class="fa fa-twitter"></i> ${twitter}</td>
-              <td><i class="fa fa-linkedin"></i> ${linkdin}</td>
-              <td><i class="fa fa-github"></i> ${github}</td>
+              <td><i class="fa fa-at"></i> ${data.gmail}</td>
+              <td><i class="fa fa-twitter"></i> ${data.twitter}</td>
+              <td><i class="fa fa-linkedin"></i> ${data.linkdin}</td>
+              <td><i class="fa fa-github"></i> ${data.github}</td>
            </tr>
         </table>
      </header>
@@ -161,15 +161,13 @@ module.exports = ({ name, gmail, twitter, linkdin, github }) => {
               </span>
               <hr class="line">
               <div class="web">
-                 <p class="sub-head">Web Development</p>
+                 <p class="sub-head">${data.field}</p>
                  <ul class="list">
-                    <i class="fa fa-calendar"> 21st April 2020</i>
+                    <i class="fa fa-calendar"> ${data.date}</i>
                     <li>
-                       <p class="list-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem provident
-                          aut
-                          sunt harum quos
-                          commodi iusto quaerat saepe veniam doloremque.</p>
-                    </li><i class="fa fa-calendar"> 20st May 2020</i>
+                       <p class="list-item">${data.experience}</p>
+                    </li>
+                    <i class="fa fa-calendar"> 20st May 2020</i>
                     <li>
                        <p class="list-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem provident
                           aut
@@ -220,12 +218,10 @@ module.exports = ({ name, gmail, twitter, linkdin, github }) => {
                  education
               </span>
               <hr class="line">
-              <p class="education-content"><span class="degree"> Bachelor of Technology</span> <span> <b>Indian
-                       Indtitue of Information Technology, Vadodara</b> </span> </p>
-              <p class="education-content"><span class="degree"> Bachelor of Technology</span> <span> <b>Indian
-                       Indtitue of Information Technology, Vadodara</b> </span> </p>
-              <p class="education-content"><span class="degree"> Bachelor of Technology</span> <span> <b>Indian
-                       Indtitue of Information Technology, Vadodara</b> </span> </p>
+              <p class="education-content"><span class="degree"> ${data.degree}</span> <span> <b>${data.insti_name}</b> </span> </p>
+              <p class="education-content"><span class="degree"> ${data.degree}</span> <span> <b>${data.insti_name}</b> </span> </p>
+              <p class="education-content"><span class="degree"> ${data.degree}</span> <span> <b>${data.insti_name}</b> </span> </p>
+ 
            </div>
         </div>
         <div class="right">
@@ -235,15 +231,15 @@ module.exports = ({ name, gmail, twitter, linkdin, github }) => {
               </span>
               <hr class="line">
               <p class="sub-head"> ProgrammingLanguage </p>
-              <p class="skill-set">C++, C, Java, Python, SQL</p>
+              <p class="skill-set">${data.pro_lang}</p>
               <p class="sub-head"> Web Technology </p>
-              <p class="skill-set">HTML, CSS, JS, React, Angular, </p>
+              <p class="skill-set">${data.web_tech} </p>
               <p class="sub-head"> Database </p>
-              <p class="skill-set">MySQL</p>
+              <p class="skill-set">${data.db}</p>
               <p class="sub-head"> Source Control </p>
-              <p class="skill-set">Git</p>
+              <p class="skill-set">${data.source}</p>
               <p class="sub-head"> Language </p>
-              <p class="skill-set">English, Hindi, French, Punjabi</p>
+              <p class="skill-set">${data.lang}</p>
            </div>
            <div class="content">
               <span class="name heading">
@@ -251,11 +247,11 @@ module.exports = ({ name, gmail, twitter, linkdin, github }) => {
               </span>
               <hr class="line">
               <div class="skill">
-                 <p class="soft-skill">Team Work</p>
-                 <p class="soft-skill">Research</p>
-                 <p class="soft-skill">Presentation</p>
-                 <p class="soft-skill">Decision Making</p>
-                 <p class="soft-skill">Problem Solving</p>
+              ${
+                 data.soft_skills.split(",").map(ele=>{
+                    return `<p class="soft-skill">${ele}</p>`
+                 })
+              }
               </div>
            </div>
            <div class="content">
@@ -263,13 +259,7 @@ module.exports = ({ name, gmail, twitter, linkdin, github }) => {
                  Certificates
               </span>
               <hr class="line">
-              <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia repellat necessitatibus unde cum aperiam
-                 corporis, placeat sapiente porro ab numquam error obcaecati doloremque corrupti, sed, debitis aspernatur
-                 minima rem voluptatum commodi suscipit at quas repudiandae. Enim molestiae accusantium vero maiores
-                 voluptate quasi laborum, similique explicabo repellendus necessitatibus a repudiandae iste aliquid impedit
-                 numquam. Nemo adipisci odit facilis laudantium nam! Nihil, aut incidunt minus quis harum, nesciunt
-                 perspiciatis vero mollitia sint modi similique. At impedit dolorem odio eligendi repellat perspiciatis
-                 accusamus expedita, vero incidunt commodi provident doloribus. Id culpa assumenda doloremque. </p>
+              <p> ${data.certificate_about} <br> ${data.certificate_link} </p>
            </div>
         </div>
      </div>
@@ -280,13 +270,10 @@ module.exports = ({ name, gmail, twitter, linkdin, github }) => {
         </span>
         <hr class="line">
         <div>
-           <p class="sub-head">To-do Application</p>
+           <p class="sub-head">${data.pro_name}</p>
            <ul class="list">
               <li>
-                 <p class="list-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem provident
-                    aut
-                    sunt harum quos
-                    commodi iusto quaerat saepe veniam doloremque.</p>
+                 <p class="list-item">${data.pro_about}</p>
               </li>
               <li>
                  <p class="list-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem provident
@@ -297,12 +284,12 @@ module.exports = ({ name, gmail, twitter, linkdin, github }) => {
 
            </ul>
            <p class="list-item"> Project URL : <a href="
-                 https://to-do-application.glitch.me/" class="linked">
-                 https://to-do-application.glitch.me/ </a> </p>
+           ${data.pro_link}" class="linked">
+                 ${data.pro_link} </a> </p>
 
            <p class="list-item"> Github URL : <a href="
-                       https://github.com/pAditya198/todo-application" class="linked">
-                 https://github.com/pAditya198/todo-application </a> </p>
+                        ${data.pro_git_link}" class="linked">
+                  ${data.pro_git_link} </a> </p>
 
         </div>
         <div>
