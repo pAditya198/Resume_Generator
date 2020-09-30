@@ -17,3 +17,7 @@
 * Design other templates
 
 * User login system
+
+* Optimise for better performance
+
+* Add splash screen
